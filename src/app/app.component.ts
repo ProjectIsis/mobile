@@ -3,7 +3,7 @@ import {Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
-import {PropertyListPage} from '../pages/property-list/property-list';
+import {ComplaintListPage} from '../pages/complaint-list/complaint-list';
 import {BrokerListPage} from '../pages/broker-list/broker-list';
 import {FavoriteListPage} from '../pages/favorite-list/favorite-list';
 import {WelcomePage} from '../pages/welcome/welcome';
@@ -33,20 +33,20 @@ export class MyApp {
         this.initializeApp();
 
         this.appMenuItems = [
-            {title: 'Properties', component: PropertyListPage, icon: 'home'},
+            {title: 'Reclamações', component: ComplaintListPage, icon: 'home'}/*,
             {title: 'Brokers', component: BrokerListPage, icon: 'people'},
             {title: 'Favorites', component: FavoriteListPage, icon: 'star'},
-            {title: 'Get Preapproved', component: WelcomePage, icon: 'checkmark-circle'},
+            {title: 'Get Preapproved', component: WelcomePage, icon: 'checkmark-circle'},*/
         ];
 
         this.accountMenuItems = [
-            {title: 'My Account', component: WelcomePage, icon: 'ios-contact'},
-            {title: 'Logout', component: WelcomePage, icon: 'log-out'},
+            {title: 'Minha conta', component: WelcomePage, icon: 'ios-contact'},
+            {title: 'sair', component: WelcomePage, icon: 'log-out'},
         ];
 
         this.helpMenuItems = [
-            {title: 'Welcome', component: WelcomePage, icon: 'bookmark'},
-            {title: 'About', component: AboutPage, icon: 'information-circle'},
+            {title: 'Bem vindo', component: WelcomePage, icon: 'bookmark'},
+            {title: 'Sobre', component: AboutPage, icon: 'information-circle'},
         ];
 
     }

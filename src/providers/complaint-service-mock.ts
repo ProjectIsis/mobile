@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import properties from './mock-properties';
 
 @Injectable()
-export class PropertyService {
+export class ComplaintService {
 
   favoriteCounter: number = 0;
   favorites: Array<any> = [];

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {PropertyService} from '../../providers/property-service-mock';
-import {PropertyDetailPage} from '../property-detail/property-detail';
+import {ComplaintService} from '../../providers/complaint-service-mock';
+import {ComplaintDetailPage} from '../complaint-detail/complaint-detail';
 
 @Component({
     selector: 'page-favorite-list',
@@ -11,12 +11,12 @@ export class FavoriteListPage {
 
     favorites: Array<any>;
 
-    constructor(public navCtrl: NavController, public service: PropertyService) {
+    constructor(public navCtrl: NavController, public service: ComplaintService) {
         this.getFavorites();
     }
 
     itemTapped(favorite) {
-        this.navCtrl.push(PropertyDetailPage, favorite.property);
+        this.navCtrl.push(ComplaintDetailPage, favorite.complaint);
     }
 
     deleteItem(favorite) {

@@ -1,20 +1,20 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, ActionSheet, NavController, NavParams, ToastController} from 'ionic-angular';
 import {BrokerDetailPage} from '../broker-detail/broker-detail';
-import {PropertyService} from '../../providers/property-service-mock';
+import {ComplaintService} from '../../providers/complaint-service-mock';
 
 @Component({
-    selector: 'page-property-detail',
-    templateUrl: 'property-detail.html'
+    selector: 'page-complaint-detail',
+    templateUrl: 'complaint-detail.html'
 })
-export class PropertyDetailPage {
+export class ComplaintDetailPage {
 
-    property: any;
+    complaint: any;
 
-    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public propertyService: PropertyService, public toastCtrl: ToastController) {
-        this.property = this.navParams.data;
-        propertyService.findById(this.property.id).then(
-            property => this.property = property
+    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public complaintService: ComplaintService, public toastCtrl: ToastController) {
+        this.complaint = this.navParams.data;
+        complaintService.findById(this.complaint.id).then(
+            complaint => this.complaint = complaint
         );
     }
 
@@ -22,11 +22,11 @@ export class PropertyDetailPage {
         this.navCtrl.push(BrokerDetailPage, broker);
     }
 
-    favorite(property) {
-        this.propertyService.favorite(property)
-            .then(property => {
+    favorite(complaint) {
+        this.complaintService.favorite(complaint)
+            .then(complaint => {
                 let toast = this.toastCtrl.create({
-                    message: 'Property added to your favorites',
+                    message: 'Complaint added to your favorites',
                     cssClass: 'mytoast',
                     duration: 1000
                 });
@@ -34,7 +34,7 @@ export class PropertyDetailPage {
             });
     }
 
-    share(property) {
+    share(complaint) {
         let actionSheet: ActionSheet = this.actionSheetCtrl.create({
             title: 'Share via',
             buttons: [

@@ -6,7 +6,7 @@ let propertiesURL = SERVER_URL + 'properties/',
     favoritesURL = propertiesURL + 'favorites/';
 
 @Injectable()
-export class PropertyService {
+export class ComplaintService {
 
     constructor(public http: Http) {
         this.http = http;

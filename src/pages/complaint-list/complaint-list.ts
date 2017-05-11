@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {Config, NavController} from 'ionic-angular';
-import {PropertyService} from '../../providers/property-service-mock';
-import {PropertyDetailPage} from '../property-detail/property-detail';
+import {ComplaintService} from '../../providers/complaint-service-mock';
+import {ComplaintDetailPage} from '../complaint-detail/complaint-detail';
 import leaflet from 'leaflet';
 
 @Component({
-    selector: 'page-property-list',
-    templateUrl: 'property-list.html'
+    selector: 'page-complaint-list',
+    templateUrl: 'complaint-list.html'
 })
-export class PropertyListPage {
+export class ComplaintListPage {
 
     properties: Array<any>;
     searchKey: string = "";
@@ -16,12 +16,12 @@ export class PropertyListPage {
     map;
     markersGroup;
 
-    constructor(public navCtrl: NavController, public service: PropertyService, public config: Config) {
+    constructor(public navCtrl: NavController, public service: ComplaintService, public config: Config) {
         this.findAll();
     }
 
-    openPropertyDetail(property: any) {
-        this.navCtrl.push(PropertyDetailPage, property);
+    openComplaintDetail(complaint: any) {
+        this.navCtrl.push(ComplaintDetailPage, complaint);
     }
 
     onInput(event) {
@@ -60,10 +60,10 @@ export class PropertyListPage {
             this.map.removeLayer(this.markersGroup);
         }
         this.markersGroup = leaflet.layerGroup([]);
-        this.properties.forEach(property => {
-            if (property.lat, property.long) {
-                let marker: any = leaflet.marker([property.lat, property.long]).on('click', event => this.openPropertyDetail(event.target.data));
-                marker.data = property;
+        this.properties.forEach(complaint => {
+            if (complaint.lat, complaint.long) {
+                let marker: any = leaflet.marker([complaint.lat, complaint.long]).on('click', event => this.openComplaintDetail(event.target.data));
+                marker.data = complaint;
                 this.markersGroup.addLayer(marker);
             }
         });

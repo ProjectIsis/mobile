@@ -9,20 +9,20 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="property-list">
+<ion-content class="complaint-list">
 
     <ion-list *ngIf="viewMode==='list'">
 
-        <ion-item-sliding *ngFor="let property of properties">
-            <button ion-item (click)="openPropertyDetail(property)">
+        <ion-item-sliding *ngFor="let complaint of properties">
+            <button ion-item (click)="openComplaintDetail(complaint)">
                 <ion-thumbnail item-left>
-                    <img src="{{property.thumbnail}}"/>
+                    <img src="{{complaint.thumbnail}}"/>
                 </ion-thumbnail>
-                <h2>{{property.title}}</h2>
-                <p>{{property.city}}, {{property.state}} ∙ {{ property.price }}</p>
+                <h2>{{complaint.title}}</h2>
+                <p>{{complaint.city}}, {{complaint.state}} ∙ {{ complaint.price }}</p>
             </button>
             <ion-item-options>
-                <button danger (click)="deleteItem(property)">Delete</button>
+                <button danger (click)="deleteItem(complaint)">Delete</button>
             </ion-item-options>
         </ion-item-sliding>
 
